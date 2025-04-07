@@ -1,6 +1,6 @@
 ﻿namespace ClassesAssessmentProject.Entities
 {
-    internal class OfficeEquipment
+    internal abstract class OfficeEquipment
     {
         public string Model { get; set; }
         public bool IsOn { get; private set; }

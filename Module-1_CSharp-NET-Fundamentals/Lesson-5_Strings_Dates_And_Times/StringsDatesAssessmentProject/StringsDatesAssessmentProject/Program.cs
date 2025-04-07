@@ -17,7 +17,7 @@ Console.WriteLine("Word Count: " + count);
 Console.WriteLine();
 
 Console.WriteLine("Counting using Split");
-int wordCount = text.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
+int wordCount = text.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).Length;
 Console.WriteLine("Word Count: " + wordCount);
 
 Console.WriteLine("===========================================================");
@@ -34,7 +34,7 @@ Console.WriteLine("===========================================================")
 
 Console.WriteLine("Display how often the word \"encapsulation\" appears in this string");
 int encapsulationCount = text.ToLower()
-               .Split()
+               .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                .Count(word => word.Equals("encapsulation"));
 Console.WriteLine("Count: " + encapsulationCount);
 Console.WriteLine("===========================================================");

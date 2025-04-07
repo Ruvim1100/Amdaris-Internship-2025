@@ -1,7 +1,7 @@
 ﻿using ClassesAssessmentProject.Entities;
 
-Printer printer = new Printer("HP Laser JT 1550");
-Scanner scanner = new Scanner("Canon 550");
+var printer = new Printer("HP Laser JT 1550");
+var scanner = new Scanner("Canon 550");
 MFP mfp = new MFP("Epson L3550");
 
 List<OfficeEquipment> officeEquipments = new List<OfficeEquipment>() { printer, scanner, mfp };
@@ -19,7 +19,7 @@ foreach (var equipment in officeEquipments)
 Console.WriteLine();
 Console.WriteLine("==================================================");
 
-Console.WriteLine("Using IS");
+Console.WriteLine("Using AS");
 Console.WriteLine();
 
 OfficeEquipment device = new MFP("Brother 1220");
