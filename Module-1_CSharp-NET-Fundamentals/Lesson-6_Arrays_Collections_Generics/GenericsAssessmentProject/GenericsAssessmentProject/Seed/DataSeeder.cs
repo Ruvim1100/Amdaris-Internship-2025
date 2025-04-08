@@ -5,6 +5,8 @@ namespace GenericsAssessmentProject.Seed
 {
     internal static class DataSeeder
     {
+        public static readonly Guid NetCourseId = new Guid("C5DB2AA8-5898-4B13-ACE9-026C1FEE3DDC");
+        public static readonly Guid SqlCourseId = new Guid("2EA37F82-4E80-41E5-85EA-3F6C0DA6EA1D");
         public static ListRepository<User> SeedUsers()
         {
             var repository = new ListRepository<User>();
@@ -21,7 +23,6 @@ namespace GenericsAssessmentProject.Seed
 
             return repository;
         }
-
 
         public static ListRepository<Lesson> SeedLessons()
         {
@@ -69,6 +70,29 @@ namespace GenericsAssessmentProject.Seed
                 repository.Add(course);
 
             return repository;
+        }
+
+        public static Course CreateReactCourse(List<User> users, List<Lesson> lessons)
+        {
+            return new Course
+            {
+                Id = Guid.NewGuid(),
+                Title = "React",
+                Description = "It is a course for Beginners. Start your journey in IT with React basics",
+                Lessons = lessons,
+                Students = users
+            };
+        }
+
+        public static Course CreateSqlCourse(List<User> users, List<Lesson> lessons)
+        {
+            return new Course
+            {
+                Id = new Guid("2EA37F82-4E80-41E5-85EA-3F6C0DA6EA1D"),
+                Title = "Sql course",
+                Description = "It is a course for Beginners. Start your journey in IT with .SQL basics",
+                Students = users
+            };
         }
     }
 }
