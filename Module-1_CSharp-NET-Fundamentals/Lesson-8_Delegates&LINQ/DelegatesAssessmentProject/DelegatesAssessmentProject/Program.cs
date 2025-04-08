@@ -28,6 +28,6 @@ Console.WriteLine("\nPrint only adult users (using extensions)");
 adultusers = users.GetAdults();
 adultusers.PrintUsers();
 
-Console.WriteLine("\nPrint only adult users (using extensions)");
+Console.WriteLine("\nPrint only adult users (using linq)");
 adultusers = users.Where(u => u.Age > 17).ToList();
 adultusers.PrintUsers();

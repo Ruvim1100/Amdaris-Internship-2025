@@ -4,7 +4,6 @@ namespace DelegatesAssessmentProject.Functions
 {
     internal static class DelegateFunctions
     {
-
         public static bool IsAdult(User user)
         {
             return user.Age > 17;

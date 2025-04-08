@@ -1,5 +1,4 @@
-﻿using GenericsAssessmentProject.Entities;
-using GenericsAssessmentProject.Seed;
+﻿using GenericsAssessmentProject.Seed;
 using GenericsAssessmentProject.Services;
 
 var userRepository = DataSeeder.SeedUsers();

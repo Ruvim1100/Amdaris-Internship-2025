@@ -4,15 +4,12 @@ namespace GenericsAssessmentProject.Repositories
 {
     internal class ListRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly List<T> _inMemory = new List<T>();
-        public T GetById(Guid id)
+        private readonly List<T> _inMemory = new List<T>(); // Use Singleton
+        public T? GetById(Guid id) // Exception and TryById, result pattern
         {
             return _inMemory.Find(t => t.Id == id);
         }
-        public IList<T> GetAll()
-        {
-            return _inMemory.ToList();
-        }
+        public IList<T> GetAll() => _inMemory.ToList();
 
         public Guid Add(T entity)
         {
@@ -45,7 +42,7 @@ namespace GenericsAssessmentProject.Repositories
 
         public void Delete(Guid Id)
         {
-            int index = _inMemory.FindIndex(e => e.Id == Id);
+            int index = _inMemory.FindIndex(e => e.Id == Id); // NOT Found
 
             if (index >= 0)
             {

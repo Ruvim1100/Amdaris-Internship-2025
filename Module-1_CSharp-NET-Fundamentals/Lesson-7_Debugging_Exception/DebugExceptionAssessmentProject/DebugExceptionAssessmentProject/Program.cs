@@ -31,7 +31,7 @@ try
 {
 	var service = new UserService();
 
-	//service.ValidateUser(user4);
+	service.ValidateUser(user4);
 
     //throw new UserValidationException("Basic UserValidationException");
     //throw new Exception("Basic Exception");
