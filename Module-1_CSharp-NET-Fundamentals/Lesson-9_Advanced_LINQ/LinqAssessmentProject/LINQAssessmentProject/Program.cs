@@ -19,7 +19,7 @@ var citizens2 = new List<Citizen>
 
 var employees = new List<Employee>
 {
-    new Employee("Stanislav", 3), 
+    new Employee("Stanislav", 3),
     new Employee("Dmitriy", 1),
     new Employee("Alexei", 2),
     new Employee("Yana", 1)
@@ -51,7 +51,7 @@ people.AddRange(citizens);
 people.AddRange(employees);
 
 
-//Projections
+////Projections
 //var citizenNames = citizens.Select(c => c.Name).ToList();
 //citizenNames.ForEach(Console.WriteLine);
 //Console.WriteLine();
@@ -117,15 +117,13 @@ people.AddRange(employees);
 //Console.WriteLine(AverageAge);
 
 ////Grouping
-//var expireinceGroup = employees.GroupBy(e => e.Experience);
-//foreach (var expirience in expireinceGroup)
+//var expireinceGroups = employees
+//    .GroupBy(e => e.Experience)
+//    .OrderByDescending(g => g.Key);
+
+//foreach (var expirience in expireinceGroups)
 //{
-//    Console.WriteLine($"Expirience: {expirience.Key} year");
-//    foreach (var employee in expirience)
-//    {
-//        Console.WriteLine(employee.Name);
-//    }
-//    Console.WriteLine();
+//    Console.WriteLine($"Expirience: {expirience.Key} year - {expirience.Count()}");
 //}
 
 ////Join
@@ -208,8 +206,8 @@ people.AddRange(employees);
 //}
 //Console.WriteLine();
 
-//Converstion methods
-//List<object> strAndNums = new List<object> { 1, 4, 2 };
+////Converstion methods
+//List<object> strAndNums = new List<object> {1, 4, 2 };
 //var castedInts = strAndNums.Cast<int>().ToList();
 //castedInts.ForEach(Console.Write);
 //Console.WriteLine();
@@ -239,24 +237,30 @@ people.AddRange(employees);
 //}
 
 //Console.WriteLine();
-//var citizensByName = citizens2.ToLookup(c => c.Name);
+//var citizensByName = citizens.ToLookup(c => c.Age >= 18);
 
-//foreach (var group in citizensByName)
+//Console.WriteLine($"Mature citizens:");
+//foreach (var citizen in citizensByName[true])
 //{
-//    Console.WriteLine($"Name: {group.Key}");
-//    foreach (var citizen in group)
-//    {
-//        Console.WriteLine($"  Age: {citizen.Age}");
-//    }
+//    Console.WriteLine($"  Name: {citizen.Name}");
 //}
+
+//Console.WriteLine();
+
+//Console.WriteLine($"Child citizens:");
+//foreach (var citizen in citizensByName[false])
+//{
+//    Console.WriteLine($"  Name: {citizen.Name}");
+//}
+
 //Console.WriteLine();
 
 //var query = citizens.AsQueryable();
-//var result = query
+//var result2 = query
 //    .Where(c => c.Age >= 20)
 //    .OrderBy(c => c.Name);
 
-//foreach (var citizen in result)
+//foreach (var citizen in result2)
 //{
 //    Console.WriteLine($"{citizen.Name} - {citizen.Age}");
 //}
