@@ -9,7 +9,7 @@ namespace BusinessLayer.Repository
         public int SaveSpeaker(Speaker speaker)
         {
             _speakers.Add(speaker);
-            return _speakers.Count - 1;
+            return _speakers.IndexOf(speaker);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace BusinessLayer.Services
     {
         public void ApproveSession(List<Session> sessions)
         {
-            if (sessions == null || sessions.Count == 0)
+            if (sessions == null || !sessions.Any())
                 throw new ArgumentException("Speaker must have at least one session.");
 
             foreach (var session in sessions)

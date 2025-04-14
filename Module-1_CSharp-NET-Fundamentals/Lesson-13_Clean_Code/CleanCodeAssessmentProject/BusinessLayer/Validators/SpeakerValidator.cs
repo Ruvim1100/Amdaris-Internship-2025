@@ -6,17 +6,13 @@ namespace BusinessLayer.Validators
 {
     internal class SpeakerValidator
     {
-        public bool Validate(Speaker speaker)
+        public void Validate(Speaker speaker)
         {
             ValidateFields(speaker);
-            if (!ValidateProfessionalCriteria(speaker) || !ValidateEmail(speaker))
-            {
-                throw new SpeakerDoesntMeetRequirementsException(
-                    "Speaker doesn't meet our arbitrary and capricious standards.");
-            }
-
-            return true;
+            ValidateProfessionalCriteria(speaker);
+            ValidateEmail(speaker);
         }
+
         private void ValidateFields(Speaker speaker)
         {
             if (string.IsNullOrWhiteSpace(speaker.FirstName))
@@ -40,16 +36,19 @@ namespace BusinessLayer.Validators
             }
         }
 
-        private bool ValidateProfessionalCriteria(Speaker speaker)
+        private void ValidateProfessionalCriteria(Speaker speaker)
         {
-            return (speaker.Experience > 10 
-                && speaker.HasBlog 
-                && speaker.Certifications.Count > 2 
-                && Constants.Employers.Contains(speaker.Employer));
-
+            if (!(speaker.Experience > 10
+                && speaker.HasBlog
+                && speaker.Certifications.Count > 2
+                && Constants.Employers.Contains(speaker.Employer)))
+            {
+                throw new SpeakerDoesntMeetRequirementsException(
+                     "Speaker doesn't meet our arbitrary and capricious standards.");
+            }
         }
 
-        private bool ValidateEmail(Speaker speaker)
+        private void ValidateEmail(Speaker speaker)
         {
             string emailDomain = speaker.Email.Split('@').Last();
 
@@ -58,7 +57,11 @@ namespace BusinessLayer.Validators
 
             bool isWrongDomain = Constants.WrongDomains.Contains(emailDomain);
 
-            return !isWrongDomain && !oldBrowser;
+            if (isWrongDomain || oldBrowser)
+            {
+                throw new SpeakerDoesntMeetRequirementsException(
+                    "Speaker doesn't meet our arbitrary and capricious standards.");
+            } 
 
         }
 

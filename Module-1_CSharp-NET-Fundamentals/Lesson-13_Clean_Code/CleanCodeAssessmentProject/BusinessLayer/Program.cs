@@ -35,7 +35,8 @@ namespace BusinessLayer
                 new RegistrationCalculator()
                 );
 
-            Console.WriteLine(service.RegisterSpeaker(speaker));
+            var result = service.RegisterSpeaker(speaker);
+            Console.WriteLine(result);
         }
     }
 }
