@@ -51,7 +51,7 @@ people.AddRange(citizens);
 people.AddRange(employees);
 
 
-////Projections
+//Projections
 //var citizenNames = citizens.Select(c => c.Name).ToList();
 //citizenNames.ForEach(Console.WriteLine);
 //Console.WriteLine();
@@ -207,7 +207,7 @@ people.AddRange(employees);
 //Console.WriteLine();
 
 ////Converstion methods
-//List<object> strAndNums = new List<object> {1, 4, 2 };
+//List<object> strAndNums = new List<object> { 1, 4, 2 };
 //var castedInts = strAndNums.Cast<int>().ToList();
 //castedInts.ForEach(Console.Write);
 //Console.WriteLine();
